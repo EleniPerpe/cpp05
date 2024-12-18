@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:56:47 by eperperi          #+#    #+#             */
-/*   Updated: 2024/12/18 17:55:54 by eperperi         ###   ########.fr       */
+/*   Updated: 2024/12/18 18:21:01 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ class Bureaucrat
 		void incrementGrade(int i);
 		void decrementGrade(int i);
 
-		const int lowestGrade = 150;
-		const int highestGrade = 1;
+		static const int lowestGrade = 150;
+		static const int highestGrade = 1;
 
 		class GradeTooHighException : public std::exception
 		{
