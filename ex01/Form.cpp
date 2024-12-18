@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:03:11 by eperperi          #+#    #+#             */
-/*   Updated: 2024/12/18 18:23:15 by eperperi         ###   ########.fr       */
+/*   Updated: 2024/12/18 19:04:15 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,56 @@
 			std::cout << "Form destructor called" << std::endl;
 		}
 
-		Form& operator=(const Form& copy);
+		Form& Form::operator=(const Form& copy)
+		{
+			std::cout << "form asignment operator called" << std::endl;
+			if (this != &copy)
+				this->_signed = copy._signed;
+			return *this;	
+		}
 		
-		const std::string& getName() const;
-		bool getSigned() const;
-		const int getGradeSignIn() const;
-		const int getGradeExecute() const;
-
-		class GradeTooHighException : public std::exception
+		const std::string& Form::getName() const
 		{
-			public:
-				virtual const char* what() const throw();
+			return this->_name;	
+		}
+
+		bool Form::getSigned() const
+		{
+			return this->_signed;
+		}
+		
+		const int Form::getGradeSignIn() const
+		{
+			return this->_gradeSignIn;
+		}
+		
+		const int Form::getGradeExecute() const
+		{
+			return this->_gradeExecute;
+		}
+
+		void Form::beSigned(const Bureaucrat& obj)
+		{
+			if (obj.getGrade() <= this->_gradeSignIn)
+				throw (Form::GradeTooLowException());
+			this->_signed = true;
+				
+		}
+
+		const char * Form::GradeTooHighException::what() const throw()
+		{
+			return ("Grade too high for form.");		
+		}
+
+		const char * Form::GradeTooLowException::what() const throw()
+		{
+			return ("Grade too low for form.");		
 		};
 
-		class GradeTooLowException : public std::exception
-		{
-			public:
-				virtual const char* what() const throw();	
-		};
-
-std::ostream& operator<<(std::ostream os, const Form& odj);
+std::ostream& operator<<(std::ostream os, const Form& obj)
+{
+		os << "\"" << obj.getName() << "\"" << std::endl
+		<< "(Required grade to sign: " << obj.getGradeExecute()
+		<< "; to execute: " << obj.getGradeExecute() << ")";
+	return (os);
+}

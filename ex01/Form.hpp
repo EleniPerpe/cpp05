@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:42:24 by eperperi          #+#    #+#             */
-/*   Updated: 2024/12/18 18:19:19 by eperperi         ###   ########.fr       */
+/*   Updated: 2024/12/18 19:02:57 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ class Form
 		const int getGradeSignIn() const;
 		const int getGradeExecute() const;
 
+		void beSigned(const Bureaucrat& obj);
+
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -48,7 +50,8 @@ class Form
 				virtual const char* what() const throw();	
 		};
 			
+		class 
 };
 
-std::ostream& operator<<(std::ostream os, const Form& odj);
+std::ostream& operator<<(std::ostream os, const Form& obj);
 
