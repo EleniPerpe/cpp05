@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:03:11 by eperperi          #+#    #+#             */
-/*   Updated: 2025/01/02 13:54:04 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/02 14:37:03 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Form::Form(const std::string name, const int gradeSignIn, const int gradeExecute
 }
 
 Form::Form(const Form& copy) : _name(copy._name), _signed(copy._signed),
-								_gradeSignIn(copy._gradeExecute), _gradeExecute(copy._gradeExecute)
+								_gradeSignIn(copy._gradeSignIn), _gradeExecute(copy._gradeExecute)
 {
 	std::cout << "Form copy constructor called" << std::endl;
 }
@@ -43,7 +43,7 @@ Form::~Form()
 
 Form& Form::operator=(const Form& copy)
 {
-	std::cout << "form asignment operator called" << std::endl;
+	std::cout << "Form asignment operator called" << std::endl;
 	if (this != &copy)
 		this->_signed = copy._signed;
 	return *this;	
@@ -71,7 +71,7 @@ int Form::getGradeExecute() const
 
 void Form::beSigned(const Bureaucrat& obj)
 {
-	if (obj.getGrade() <= this->_gradeSignIn)
+	if (obj.getGrade() > this->_gradeSignIn)
 		throw (Form::GradeTooLowException());
 	this->_signed = true;		
 }
@@ -89,7 +89,7 @@ const char * Form::GradeTooLowException::what() const throw()
 std::ostream& operator<<(std::ostream& os, const Form& obj)
 {
 os << "\"" << obj.getName() << "\"" << std::endl
-<< "(Required grade to sign: " << obj.getGradeExecute()
-<< "; to execute: " << obj.getGradeExecute() << ")";
+<< "(Required grade to sign: " << obj.getGradeSignIn()
+<< ", to execute: " << obj.getGradeExecute() << ")";
 return (os);
 }

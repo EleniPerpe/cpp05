@@ -6,11 +6,11 @@
 #    By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 15:07:19 by eperperi          #+#    #+#              #
-#    Updated: 2025/01/02 13:55:25 by eperperi         ###   ########.fr        #
+#    Updated: 2025/01/02 14:05:33 by eperperi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	bureaucrat
+NAME			=	maggots
 
 CC				=	c++ -g -fsanitize=address
 
