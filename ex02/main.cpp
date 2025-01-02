@@ -6,12 +6,13 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:41:09 by eperperi          #+#    #+#             */
-/*   Updated: 2025/01/02 14:42:59 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/02 17:16:03 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
@@ -20,9 +21,11 @@ int main()
 		Bureaucrat maria("Maria", 140);
 		Bureaucrat john("John", 70);
 		Bureaucrat boss("Boss", 1);
-		Form formBasic1("Basic1", 80, 20);
-		Form formBasic2("Basic2", 150, 20);
-		Form formVip("formVip", 1, 1);
+		ShrubberyCreationForm formBasic1("home");
+		ShrubberyCreationForm formVip("VIP");
+		ShrubberyCreationForm formBasic2(formVip);
+		formBasic1.execute(john);
+		formBasic1.execute(maria);
 		maria.signForm(formBasic1);
 		maria.signForm(formBasic2);
 		maria.signForm(formVip);
