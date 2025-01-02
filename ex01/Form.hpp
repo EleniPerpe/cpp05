@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:42:24 by eperperi          #+#    #+#             */
-/*   Updated: 2024/12/18 19:02:57 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/02 13:51:50 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -33,8 +35,8 @@ class Form
 		
 		const std::string& getName() const;
 		bool getSigned() const;
-		const int getGradeSignIn() const;
-		const int getGradeExecute() const;
+		int getGradeSignIn() const;
+		int getGradeExecute() const;
 
 		void beSigned(const Bureaucrat& obj);
 
@@ -49,9 +51,7 @@ class Form
 			public:
 				virtual const char* what() const throw();	
 		};
-			
-		class 
 };
 
-std::ostream& operator<<(std::ostream os, const Form& obj);
+std::ostream& operator<<(std::ostream& os, const Form& obj);
 

@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 14:12:41 by eperperi          #+#    #+#             */
-/*   Updated: 2024/12/18 17:55:17 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/02 13:55:06 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ const std::string& Bureaucrat::getName() const
 	return this->_name;
 }
 
-size_t Bureaucrat::getGrade() const
+int Bureaucrat::getGrade() const
 {
 	return this->_grade;
 }
@@ -76,6 +76,19 @@ void Bureaucrat::decrementGrade(int i)
 	}
 }
 
+void Bureaucrat::signForm(Form& form) const
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << *this << " signed " << form << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << *this << " couldn't sign " << form << " because : " << e.what() << std::endl;
+	}
+}
+
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Grade is too high !");
@@ -88,6 +101,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
 {
-	os << "Bureaucrat \"" << obj.getName() << "\" (grade: " << obj.getGrade() << ")" << std::endl;
+	os << obj.getName() << " bureaucrat grade " << obj.getGrade() << std::endl;
 	return (os);
 }

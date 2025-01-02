@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:16:25 by eperperi          #+#    #+#             */
-/*   Updated: 2024/12/18 17:40:11 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/02 13:12:04 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ int main()
 		std::cout << John << std::endl;
 		// John.incrementGrade(40);
 		// std::cout << John << std::endl;
-		// Bureaucrat Eleni("Eleni", 170);
+		// Bureaucrat Eleni("Eleni", -2);
 		
 	}
-	catch(Bureaucrat::LowGradeException& e)
+	catch(Bureaucrat::GradeTooLowException& e)
 	{
 		std::cout << "Exception : " << e.what() << std::endl;
 	}
-	catch(Bureaucrat::HighGradeException& e)
+	catch(Bureaucrat::GradeTooHighException& e)
 	{
 		std::cout << "Exception : " << e.what() << std::endl;
 	}

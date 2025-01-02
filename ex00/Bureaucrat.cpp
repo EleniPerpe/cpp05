@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 14:12:41 by eperperi          #+#    #+#             */
-/*   Updated: 2024/12/18 17:56:06 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/02 13:06:14 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
 {
-	os << "Bureaucrat \"" << obj.getName() << "\" (grade: " << obj.getGrade() << ")" << std::endl;
+	os << obj.getName() << " bureaucrat grade " << obj.getGrade() << std::endl;
 	return (os);
 }

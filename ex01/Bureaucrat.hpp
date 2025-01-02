@@ -6,13 +6,16 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:56:47 by eperperi          #+#    #+#             */
-/*   Updated: 2024/12/18 18:21:01 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/02 13:54:58 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -28,10 +31,12 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat& copy);
 
 		const std::string& getName() const;
-		size_t getGrade() const;
+		int getGrade() const;
 
 		void incrementGrade(int i);
 		void decrementGrade(int i);
+
+		void signForm(Form& form) const;
 
 		static const int lowestGrade = 150;
 		static const int highestGrade = 1;
