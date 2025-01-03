@@ -6,12 +6,13 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:34:37 by eperperi          #+#    #+#             */
-/*   Updated: 2025/01/03 13:45:25 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/03 15:43:29 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
+#include <random>
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 
 								ShrubberyCreationForm::signGrade, ShrubberyCreationForm::signExec),
@@ -73,6 +74,7 @@ const std::string ShrubberyCreationForm::_tree2 =
 
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
+	// I can remove the try-catch from here and just open the extra case in main
 	try
 	{
 		if (executor.getGrade() > ShrubberyCreationForm::signExec)
@@ -89,12 +91,20 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
 	std::ofstream ofs;
 
 	ofs.open((this->_target + "_shrubbery").c_str(), std::ofstream::out | std::ofstream::app);
+	
+	if (!ofs.is_open())
+        throw std::runtime_error("Failed to open the file: " + this->_target + "_shrubbery");
 
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dis(0, 1);
+	
 	if (ofs.is_open())
 	{
-		if (std::rand() % 2)
+		if (dis(gen))
 			ofs << ShrubberyCreationForm::_tree1;
 		else
 			ofs << ShrubberyCreationForm::_tree2;
 	}
+	ofs.close();
 }

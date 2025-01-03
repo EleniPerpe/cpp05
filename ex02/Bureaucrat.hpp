@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:56:47 by eperperi          #+#    #+#             */
-/*   Updated: 2025/01/02 15:39:26 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/03 16:36:08 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ class Bureaucrat
 		void decrementGrade(int i);
 
 		void signForm(AForm& form) const;
-
+		void executeForm(AForm const & form) const;
+		
 		static const int lowestGrade = 150;
 		static const int highestGrade = 1;
 

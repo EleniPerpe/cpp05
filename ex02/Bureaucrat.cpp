@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 14:12:41 by eperperi          #+#    #+#             */
-/*   Updated: 2025/01/02 15:37:20 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/03 17:00:59 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,24 @@ void Bureaucrat::signForm(AForm& form) const
 	catch(const std::exception& e)
 	{
 		std::cout << *this << " couldn't sign " << form << " because : " << e.what() << std::endl << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm const & form) const
+{
+	try
+	{
+		if (this->getGrade() <= form.getGradeExecute())
+		{
+			form.execute(*this);
+			std::cout << *this << " executed " << form.getName() << std::endl;
+		}
+		else
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << *this << " couldn't execute " << form.getName() << " because : " << e.what() << std::endl;
 	}
 }
 
