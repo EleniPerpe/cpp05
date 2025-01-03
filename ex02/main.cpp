@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:41:09 by eperperi          #+#    #+#             */
-/*   Updated: 2025/01/02 17:16:03 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/03 13:46:10 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int main()
 		ShrubberyCreationForm formBasic1("home");
 		ShrubberyCreationForm formVip("VIP");
 		ShrubberyCreationForm formBasic2(formVip);
-		formBasic1.execute(john);
 		formBasic1.execute(maria);
+		formBasic1.execute(john);
 		maria.signForm(formBasic1);
 		maria.signForm(formBasic2);
 		maria.signForm(formVip);
@@ -50,4 +50,8 @@ int main()
 	{
 		std::cout << "Exception : " << e.what() << std::endl;
 	}
+	// catch(AForm::GradeTooLowException& e)
+	// {
+	// 	std::cout << "Exception : " << e.what() << std::endl;
+	// }
 }

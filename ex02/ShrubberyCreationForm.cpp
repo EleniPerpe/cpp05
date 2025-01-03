@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:34:37 by eperperi          #+#    #+#             */
-/*   Updated: 2025/01/02 17:23:42 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/03 13:45:25 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,19 @@ const std::string ShrubberyCreationForm::_tree2 =
 
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
-    if (executor.getGrade() > ShrubberyCreationForm::signExec)
-        throw (AForm::GradeTooLowException());
-
+	try
+	{
+		if (executor.getGrade() > ShrubberyCreationForm::signExec)
+			throw (AForm::GradeTooLowException());	
+	}
+	catch(AForm::GradeTooLowException& e)
+	{
+		std::cout << "Exception : " << e.what() << std::endl;
+		return;
+	}	
+	
+	std::cout << "_shrubbery file with ASCII tree created" << std::endl;
+	
 	std::ofstream ofs;
 
 	ofs.open((this->_target + "_shrubbery").c_str(), std::ofstream::out | std::ofstream::app);
