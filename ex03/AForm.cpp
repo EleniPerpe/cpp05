@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:03:11 by eperperi          #+#    #+#             */
-/*   Updated: 2025/01/02 17:17:22 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/04 15:13:48 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 
 		
-AForm::AForm() : _name("Unkown"), _signed(false), _gradeSignIn(150), _gradeExecute(150)
+AForm::AForm() : _name("Unkown"), _signed(false), _gradeSignIn(150), _gradeExecute(1)
 {
 	std::cout << "AForm default constructor called" << std::endl;
 }
@@ -69,10 +69,39 @@ int AForm::getGradeExecute() const
 	return this->_gradeExecute;
 }
 
+void AForm::execute(const Bureaucrat& executor) const
+{
+
+	// I can remove the try-catch from here and just open the extra case in main
+	try
+	{
+		if (executor.getGrade() > AForm::_gradeExecute)
+		{
+			std::cout << executor.getName() << " doesn't exist!" << std::endl;
+			throw (AForm::GradeTooLowException());	
+		}
+	}
+	catch(AForm::GradeTooLowException& e)
+	{
+		std::cout << "Exception : " << e.what() << std::endl;
+		return;
+	}	
+
+}
+
+
 void AForm::beSigned(const Bureaucrat& obj)
 {
+	if (this->_signed == false)
+	{
+		throw AForm::NoSignException();
+		return ;
+	}
 	if (obj.getGrade() > this->_gradeSignIn)
+	{
 		throw (AForm::GradeTooLowException());
+		return ;
+	}
 	this->_signed = true;		
 }
 
@@ -85,6 +114,11 @@ const char * AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low for Aform.");		
 };
+
+const char* AForm::NoSignException::what() const throw()
+{
+	return ("Form has not been signed");
+}
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj)
 {

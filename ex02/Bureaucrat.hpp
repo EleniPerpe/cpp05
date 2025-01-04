@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:56:47 by eperperi          #+#    #+#             */
-/*   Updated: 2025/01/03 16:36:08 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/04 15:05:14 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ class Bureaucrat
 			public:
 				virtual const char* what() const throw();
 		};
+		
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);

@@ -6,18 +6,18 @@
 #    By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 15:07:19 by eperperi          #+#    #+#              #
-#    Updated: 2025/01/03 16:09:52 by eperperi         ###   ########.fr        #
+#    Updated: 2025/01/04 16:10:57 by eperperi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	forms02
+NAME			=	intern
 
 CC				=	c++ -g -fsanitize=address
 
 CFLAGS			=	-Wall -Werror -Wextra -std=c++11
 
 SRC_FILES		=	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
-					PresidentialPardonForm.cpp
+					PresidentialPardonForm.cpp Intern.cpp
 
 OBJ_DIR			=	./obj
 

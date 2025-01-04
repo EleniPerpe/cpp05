@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:42:24 by eperperi          #+#    #+#             */
-/*   Updated: 2025/01/02 16:16:34 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/04 15:12:18 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,13 @@ class AForm
 				virtual const char* what() const throw();	
 		};
 
-		virtual void execute(const Bureaucrat& executor) const = 0;
+		class NoSignException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		
+		void execute(const Bureaucrat& executor) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj);
