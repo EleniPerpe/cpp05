@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:16:25 by eperperi          #+#    #+#             */
-/*   Updated: 2025/01/02 13:12:04 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:47:04 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
 		std::cout << John << std::endl;
 		John.decrementGrade(40);
 		std::cout << John << std::endl;
-		// John.incrementGrade(40);
+		// John.decrementGrade(50);
 		// std::cout << John << std::endl;
 		// Bureaucrat Eleni("Eleni", -2);
 		

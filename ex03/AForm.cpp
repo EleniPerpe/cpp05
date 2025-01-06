@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:03:11 by eperperi          #+#    #+#             */
-/*   Updated: 2025/01/04 15:13:48 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/06 15:29:12 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,11 @@ int AForm::getGradeExecute() const
 
 void AForm::execute(const Bureaucrat& executor) const
 {
-
+	if (this->_signed == false)
+	{
+		throw AForm::NoSignException();
+		return ;
+	}
 	// I can remove the try-catch from here and just open the extra case in main
 	try
 	{
@@ -92,11 +96,11 @@ void AForm::execute(const Bureaucrat& executor) const
 
 void AForm::beSigned(const Bureaucrat& obj)
 {
-	if (this->_signed == false)
-	{
-		throw AForm::NoSignException();
-		return ;
-	}
+	// if (this->_signed == false)
+	// {
+	// 	throw AForm::NoSignException();
+	// 	return ;
+	// }
 	if (obj.getGrade() > this->_gradeSignIn)
 	{
 		throw (AForm::GradeTooLowException());

@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 17:33:12 by eperperi          #+#    #+#             */
-/*   Updated: 2025/01/04 16:21:45 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/06 15:11:32 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,29 @@
 #define RESET	"\e[0m"
 #define RED		"\e[31m"
 #define GREEN	"\e[32m"
-#define CYAN	"\e[36m"
 
 Intern::Intern(void)
 {
-	std::cout << CYAN "Intern default constructor called." RESET << std::endl;
+	std::cout << "Intern default constructor called." << std::endl;
 	return ;
 }
 
 Intern::Intern(Intern const & src)
 {
-	std::cout << CYAN "Intern copy constructor called." RESET << std::endl;
+	std::cout << "Intern copy constructor called." << std::endl;
 	(void)src;
 	return ;
 }
 
 Intern::~Intern(void)
 {
-	std::cout << CYAN "Intern desctructor called." RESET << std::endl;
+	std::cout << "Intern desctructor called." << std::endl;
 	return ;
 }
 
 Intern &	Intern::operator=(Intern const & src)
 {
-	std::cout << CYAN "Intern assignment operator overload called." RESET << std::endl;
+	std::cout << "Intern assignment operator overload called." << std::endl;
 	(void)src;
 	return (*this);
 }

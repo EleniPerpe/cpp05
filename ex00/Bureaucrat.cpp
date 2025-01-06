@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 14:12:41 by eperperi          #+#    #+#             */
-/*   Updated: 2025/01/02 13:06:14 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:44:56 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ const std::string& Bureaucrat::getName() const
 	return this->_name;
 }
 
-size_t Bureaucrat::getGrade() const
+int Bureaucrat::getGrade() const
 {
 	return this->_grade;
 }

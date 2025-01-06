@@ -6,7 +6,7 @@
 /*   By: eperperi <eperperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:56:47 by eperperi          #+#    #+#             */
-/*   Updated: 2024/12/18 17:55:54 by eperperi         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:44:48 by eperperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat& copy);
 
 		const std::string& getName() const;
-		size_t getGrade() const;
+		int getGrade() const;
 
 		void incrementGrade(int i);
 		void decrementGrade(int i);
