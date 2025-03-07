@@ -1,0 +1,3 @@
+This project is a fun exercise designed to simulate a bureaucratic system with different roles, forms, and tasks. The goal is to familiarize oneself with object-oriented principles in C++, including exception handling, abstract classes, inheritance, polymorphism, and dynamic memory management.
+
+The project revolves around various classes that represent different bureaucratic entities: Bureaucrats, Forms, and Interns, along with various concrete Form subclasses like ShrubberyCreationForm, RobotomyRequestForm, and PresidentialPardonForm. The system mimics the bureaucratic process where bureaucrats sign forms, execute them, and interns help create them.
